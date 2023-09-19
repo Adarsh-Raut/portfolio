@@ -147,7 +147,7 @@ const MobileMenu = styled.div`
   z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
 `;
 
-const MobileMenuLink = styled(LinkR)`
+export const MobileLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
   font-weight: 500;
   cursor: pointer;
@@ -180,7 +180,7 @@ const Navbar = () => {
           >
             <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
           </a>
-        </NavLogo>{' '}
+        </NavLogo>
         <MobileIcon>
           <FaBars
             onClick={() => {
@@ -199,47 +199,55 @@ const Navbar = () => {
             Github Profile
           </GitHubButton>
         </ButtonContainer>
+        {isOpen && (
+          <MobileMenu isOpen={isOpen}>
+            <MobileLink
+              href="#about"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              About
+            </MobileLink>
+            <MobileLink
+              href="#skills"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              Skills
+            </MobileLink>
+            <MobileLink
+              href="#projects"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              Projects
+            </MobileLink>
+            <MobileLink
+              href="#contact"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              Contact
+            </MobileLink>
+            <GitHubButton
+              style={{
+                padding: '10px 16px',
+                background: `${theme.primary}`,
+                color: 'white',
+                width: 'max-content',
+              }}
+              href={Bio.github}
+              target="_blank"
+            >
+              Github Profile
+            </GitHubButton>
+          </MobileMenu>
+        )}
       </NavbarContainer>
-      {isOpen && (
-        <MobileMenu isOpen={isOpen}>
-          <MobileMenuLink
-            href="#about"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            About
-          </MobileMenuLink>
-          <MobileMenuLink
-            href="#skills"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            Skills
-          </MobileMenuLink>
-          <MobileMenuLink
-            href="#projects"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            Projects
-          </MobileMenuLink>
-          <GitHubButton
-            style={{
-              padding: '10px 16px',
-              background: `${theme.primary}`,
-              color: 'white',
-              width: 'max-content',
-            }}
-            href="/"
-            target="_blank"
-          >
-            Github Profile
-          </GitHubButton>
-        </MobileMenu>
-      )}
     </Nav>
   );
 };
