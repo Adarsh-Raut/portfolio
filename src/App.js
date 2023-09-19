@@ -5,6 +5,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/HeroSection';
 import Skills from './components/Skills';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Projects from './components/Projects';
+import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -38,6 +41,11 @@ function App() {
           <Wrapper>
             <Skills />
           </Wrapper>
+          <Projects />
+          <Wrapper>
+            <Contact />
+          </Wrapper>
+          <Footer />
         </Body>
       </Router>
     </ThemeProvider>

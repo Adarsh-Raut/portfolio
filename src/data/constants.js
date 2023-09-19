@@ -3,7 +3,7 @@ export const Bio = {
   roles: ['Full Stack Developer', 'UI/UX Designer', 'Programmer'],
   description:
     'I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.',
-  github: 'https://github.com/adarsh0987',
+  github: 'https://github.com/Adarsh-Raut',
   resume:
     'https://drive.google.com/file/d/1221YU1pkYph28grlrVRdhYdSb4eTH437/view?usp=sharing',
   linkedin: 'https://www.linkedin.com/in/adarsh-raut-77a416232/',
@@ -127,5 +127,82 @@ export const skills = [
           'https://camo.githubusercontent.com/93b32389bf746009ca2370de7fe06c3b5146f4c99d99df65994f9ced0ba41685/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f676574706f73746d616e2f676574706f73746d616e2d69636f6e2e737667',
       },
     ],
+  },
+];
+
+export const projects = [
+  {
+    id: 0,
+    title: 'Travel Guide',
+    date: 'Apr 2023 - May 2023',
+    description:
+      'Travel-Guide is a React app to help people who travel to guide them to different attractions, hotels and restaurants in that location. You can also filter hotels, attractions and restaurants according to their reviews.',
+    image:
+      'https://user-images.githubusercontent.com/86641528/235453021-654cb582-9e8b-4fc6-9258-37803be91e1a.png',
+    tags: [
+      'Materrial-UI',
+      'Google-Map-React',
+      'Eslint',
+      'React Js',
+      'Node Js',
+      'Express Js',
+      'Axios',
+    ],
+    category: 'web app',
+    github: 'https://github.com/adarsh0987/Travel-Guide',
+    webapp: '',
+  },
+  {
+    id: 1,
+    title: 'Weather App',
+    date: 'Feb 2022 - Apr 2022',
+    description:
+      'This weather app provides you with temperature and weather details about the city you entered in the search bar. It gets the weather data from https://openweathermap.org/api and displays it on the page. I have used "ejs" for rendering data dynamically.',
+    image:
+      'https://user-images.githubusercontent.com/86641528/235443263-7e6def5e-f2ce-44d2-be5c-ee707883a786.png',
+    tags: ['Node Js', 'EJS', 'API', 'Express Js'],
+    category: 'web app',
+    github: 'https://github.com/adarsh0987/Weather-App',
+    webapp: '',
+  },
+  {
+    id: 2,
+    title: 'Blog Site',
+    date: 'May 2023 - Jun 2023',
+    description:
+      "Blog Site, where creativity meets functionality! In this digital age, sharing your thoughts and ideas with the world has never been easier. With the power of EJS, Node.js, and Express, I've created a dynamic and user-friendly platform that allows you to express yourself effortlessly. Join us as we explore the exciting world of modern web development and how these technologies combine to deliver an exceptional blogging experience.",
+    image:
+      'https://user-images.githubusercontent.com/86641528/268878042-e9d7b5a8-16a1-4794-9e50-8e642125a58c.png',
+    tags: ['Node Js', 'EJS', 'Express Js'],
+    category: 'web app',
+    github: 'https://github.com/adarsh0987/Blog-site',
+    webapp: '',
+  },
+
+  {
+    id: 3,
+    title: 'Simon Game',
+    date: 'Jan 2022 - Feb 2022',
+    description:
+      'Welcome to the Simon Game website, where you can challenge your memory and reflexes in this classic electronic game brought to life in a digital format! This web-based Simon Game is designed with HTML, CSS, and JavaScript to provide you with an engaging and fun experience.',
+    image:
+      'https://user-images.githubusercontent.com/86641528/268877738-dc32b3e6-7e20-4feb-a269-e9ff9a7d6469.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    category: 'web app',
+    github: 'https://github.com/adarsh0987/Simon-Game',
+    webapp: '',
+  },
+  {
+    id: 4,
+    title: 'Drum Kit',
+    date: 'Nov 2021 - Dec 2021',
+    description:
+      'Are you ready to embark on a musical journey like no other? Look no further than Drum-Kit, your one-stop destination for all things drumming. Our website, meticulously crafted with HTML, CSS, and JavaScript, is designed to ignite your passion for percussion and guide you through the world of drum kits.',
+    image:
+      'https://user-images.githubusercontent.com/86641528/268877282-086b0d7a-f49e-4676-beeb-307637fbc147.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    category: 'web app',
+    github: 'https://github.com/adarsh0987/Drum-Kit',
+    webapp: '',
   },
 ];
