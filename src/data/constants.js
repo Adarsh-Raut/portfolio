@@ -5,8 +5,7 @@ export const Bio = {
     'I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.',
   github: 'https://github.com/Adarsh-Raut',
   resume:
-    'https://drive.google.com/file/d/1i9wDh5gM1dV7Iey5qH2LiY-6oEvzn2wB/view?usp=sharing',
-  linkedin: 'https://www.linkedin.com/in/adarsh-raut-77a416232/',
+    'https://drive.google.com/file/d/1yg4C8HLUL8TnjwyPjXFHeoZniACDH5UP/view?usp=drive_link',
 };
 
 export const skills = [
@@ -98,8 +97,7 @@ export const skills = [
     skills: [
       {
         name: 'Git',
-        image:
-          'https://camo.githubusercontent.com/fbfcb9e3dc648adc93bef37c718db16c52f617ad055a26de6dc3c21865c3321d/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6769742d73636d2f6769742d73636d2d69636f6e2e737667',
+        image: 'https://git-scm.com/images/logos/logomark-orange@2x.png',
       },
       {
         name: 'GitHub',
@@ -123,8 +121,7 @@ export const skills = [
       },
       {
         name: 'Postman',
-        image:
-          'https://camo.githubusercontent.com/93b32389bf746009ca2370de7fe06c3b5146f4c99d99df65994f9ced0ba41685/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f676574706f73746d616e2f676574706f73746d616e2d69636f6e2e737667',
+        image: 'https://www.svgrepo.com/show/354202/postman-icon.svg',
       },
     ],
   },
