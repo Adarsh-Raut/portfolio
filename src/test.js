@@ -1,1 +1,1 @@
-console.log("test");
+const test = "this is a test"
