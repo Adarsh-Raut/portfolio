@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from '../Cards/ProjectCard';
 import { projects } from '../../data/constants';
+import { useInView } from 'react-intersection-observer';
 
 const Container = styled.div`
   display: flex;
@@ -48,38 +50,42 @@ export const Desc = styled.div`
   }
 `;
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 28px;
   flex-wrap: wrap;
-  // display: grid;
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-gap: 32px;
-  // grid-auto-rows: minmax(100px, auto);
-  // @media (max-width: 960px) {
-  //     grid-template-columns: repeat(2, 1fr);
-  // }
-  // @media (max-width: 640px) {
-  //     grid-template-columns: repeat(1, 1fr);
-  // }
 `;
 
 const Projects = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
-    <Container id="projects">
+    <Container id="projects" ref={ref}>
       <Wrapper>
         <Title>Projects</Title>
         <Desc>
-          I have worked on wide range of projects. Here are some of my projects
+          I have worked on a wide range of projects. Here are some of my projects
           which I have worked on.
         </Desc>
-        <CardContainer>
-          {projects.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-        </CardContainer>
+        <AnimatePresence>
+          {inView && (
+            <CardContainer
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -100, opacity: 0 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+            >
+              {projects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </CardContainer>
+          )}
+        </AnimatePresence>
       </Wrapper>
     </Container>
   );

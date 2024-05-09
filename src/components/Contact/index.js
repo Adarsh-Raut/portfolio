@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Snackbar } from '@mui/material';
+import { useInView } from 'react-intersection-observer';
 
 const Container = styled.div`
   display: flex;
@@ -11,12 +13,9 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
   align-items: center;
-  @media (max-width: 960px) {
-    padding: 0px;
-  }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -26,9 +25,6 @@ const Wrapper = styled.div`
   max-width: 1350px;
   padding: 0px 0px 80px 0px;
   gap: 12px;
-  @media (max-width: 960px) {
-    flex-direction: column;
-  }
 `;
 
 const Title = styled.div`
@@ -37,10 +33,6 @@ const Title = styled.div`
   font-weight: 600;
   margin-top: 50px;
   color: ${({ theme }) => theme.text_primary};
-  @media (max-width: 768px) {
-    margin-top: 12px;
-    font-size: 32px;
-  }
 `;
 
 const Desc = styled.div`
@@ -48,10 +40,6 @@ const Desc = styled.div`
   text-align: center;
   max-width: 600px;
   color: ${({ theme }) => theme.text_secondary};
-  @media (max-width: 768px) {
-    margin-top: 12px;
-    font-size: 16px;
-  }
 `;
 
 const ContactForm = styled.form`
@@ -132,9 +120,12 @@ const ContactButton = styled.input`
 `;
 
 const Contact = () => {
-  //hooks
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const form = useRef();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -151,7 +142,12 @@ const Contact = () => {
 
   return (
     <Container id="contact">
-      <Wrapper>
+      <Wrapper
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
         <Title>Contact</Title>
         <Desc>
           Feel free to reach out to me for any questions or opportunities!

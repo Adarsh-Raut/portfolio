@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
 import { skills } from '../../data/constants';
+import { useInView } from 'react-intersection-observer';
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +27,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Title = styled.div`
+const Title = styled.div`
   font-size: 42px;
   text-align: center;
   font-weight: 600;
@@ -37,7 +39,7 @@ export const Title = styled.div`
   }
 `;
 
-export const Desc = styled.div`
+const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   max-width: 600px;
@@ -56,7 +58,7 @@ const SkillsContainer = styled.div`
   justify-content: center;
 `;
 
-const Skill = styled.div`
+const Skill = styled(motion.div)`
   width: 100%;
   max-width: 500px;
   background: ${({ theme }) => theme.card};
@@ -117,8 +119,13 @@ const SkillImage = styled.img`
 `;
 
 const Skills = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
-    <Container id="skills">
+    <Container id="skills" ref={ref}>
       <Wrapper>
         <Title>Skills</Title>
         <Desc>
@@ -126,19 +133,28 @@ const Skills = () => {
           past 2 years.
         </Desc>
         <SkillsContainer>
-          {skills.map((item) => (
-            <Skill>
-              <SkillTitle>{item.title}</SkillTitle>
-              <SkillList>
-                {item.skills.map((skill) => (
-                  <SkillItem>
-                    <SkillImage src={skill.image} />
-                    {skill.name}
-                  </SkillItem>
-                ))}
-              </SkillList>
-            </Skill>
-          ))}
+          <AnimatePresence>
+            {inView &&
+              skills.map((item) => (
+                <Skill
+                  key={item.title}
+                  initial={{ x: 1000, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: 1000, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                >
+                  <SkillTitle>{item.title}</SkillTitle>
+                  <SkillList>
+                    {item.skills.map((skill) => (
+                      <SkillItem key={skill.name}>
+                        <SkillImage src={skill.image} alt={skill.name} />
+                        {skill.name}
+                      </SkillItem>
+                    ))}
+                  </SkillList>
+                </Skill>
+              ))}
+          </AnimatePresence>
         </SkillsContainer>
       </Wrapper>
     </Container>
