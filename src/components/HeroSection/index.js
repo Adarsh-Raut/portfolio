@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-
 export const HeroContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
   display: flex;
@@ -233,7 +232,7 @@ const Hero = () => {
                 initial={{ x: -1000, opacity: 0 }} // Start position outside the viewport on the left
                 animate={{ x: 0, opacity: 1 }} // End position at x = 0 (center) with full opacity
                 exit={{ x: -1000, opacity: 0 }} // Exit position back to the left with no opacity
-                transition={{ duration: 0.5, ease: "easeInOut" }} // Apply ease-in-out
+                transition={{ duration: 0.8, ease: 'easeInOut' }} // Apply ease-in-out
               >
                 <HeroLeftContainer>
                   <Title>
