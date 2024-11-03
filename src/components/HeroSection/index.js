@@ -47,6 +47,10 @@ export const HeroBg = styled.div`
     justify-content: center;
     padding: 0 0px;
   }
+
+  @media (max-width: 960px) {
+    display: none; // Hide the HeroBgAnimation on screens 960px and below
+  }
 `;
 
 export const HeroInnerContainer = styled.div`
